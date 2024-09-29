@@ -86,7 +86,6 @@ class NumericFilter extends DocumentFilter {
 
 		// Elimina el texto en la posición especificada
 		sb.delete(offset, offset + length);
-		System.out.println("Pos: "+offset+" "+offset+length);
 		
 		//caso especial - ningún caracter
 		if(sb.length()==0)

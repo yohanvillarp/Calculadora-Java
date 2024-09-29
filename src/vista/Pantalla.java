@@ -41,4 +41,7 @@ public class Pantalla extends JPanel{
 		doc.setDocumentFilter(new NumericFilter());
 		add(displayField);
 	}
+	public void addNumber(String number) {
+		displayField.setText(displayField.getText()+number);
+	}
 }
