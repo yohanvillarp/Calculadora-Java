@@ -7,8 +7,8 @@ import javax.swing.JFrame;
 
 public class Ventana extends JFrame{
 	//campos
-	private static int WIDTH = 400;
-	private static int HEIGHT = 600;
+	private final int WIDTH = 400;
+	private final int HEIGHT = 600;
 	
 	//singleton
 	private static Ventana instance = new Ventana();
