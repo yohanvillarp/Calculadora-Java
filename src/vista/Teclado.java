@@ -8,12 +8,17 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
+import controller.Events;
+
 public class Teclado extends JPanel{
 	
 	//campos
 	private JButton buttons[];
-	private final int NUM_BUTTONS = 9;
+	private final int NUM_BUTTONS = ROWS * COLUMNS;
 	private static JPanel contenedor;
+	private static int ROWS = 4;
+	private static int COLUMNS = 5;
+	private static final String[] caracteres = {"7","8","9","DEL","AC","4","5","6","x","/","1","2","3","+","-","0",",","x10^x","Ans","="};
 	
 	//contenedor de teclado
 	private static JPanel instance = new JPanel();
@@ -29,32 +34,26 @@ public class Teclado extends JPanel{
 		config();
 	}
 	private void config() {
-		setLayout(new GridLayout(3,3));
+		setLayout(new GridLayout(ROWS,COLUMNS));
 		setPreferredSize(new Dimension(370, 450));
 		addButtons();
 	}
 	
 	private void addButtons() {
-		buttons = new JButton[NUM_BUTTONS];
-		int caracter = 7; int cont = 0;
+		buttons = new JButton[caracteres.length];
 		
-		while(cont!=9) {
-			buttons[cont] = new JButton(""+caracter);
-			
-			buttons[cont].addActionListener(eventPressButton());
-			add(buttons[cont]);
-			if(caracter == 9) caracter = 3;
-			else if(caracter == 6) caracter = 0;
-			cont++; caracter++;
+		int cont = 0;
+		
+		for(JButton btn : buttons) {
+			btn = new JButton(caracteres[cont]);
+			if(caracteres[cont]!="DEL" || caracteres[cont]!="AC" || caracteres[cont]!="Ans" || caracteres[cont]!="x10^x")
+				btn.addActionListener(Events.eventPressButton());
+			btn.setPreferredSize(new Dimension(10,10));
+			add(btn);
+			cont++;
 		}
+			
 	}
 	
-	private ActionListener eventPressButton() {
-		//logica de botones
-		ActionListener logicaButton = (e) ->{
-			JButton btn = (JButton)e.getSource();
-			Pantalla.getInstance().addNumber(btn.getText());
-		};
-		return logicaButton;
-	}
+	
 }

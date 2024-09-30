@@ -38,7 +38,7 @@ public class Pantalla extends JPanel{
 		displayField.setHorizontalAlignment(JTextField.RIGHT);
 		displayField.setFont(new Font("Segoe UI", Font.BOLD, 40));
 		PlainDocument doc = (PlainDocument) displayField.getDocument();
-		doc.setDocumentFilter(new NumericFilter());
+		doc.setDocumentFilter(new PrintableFilter());
 		add(displayField);
 	}
 	public void addNumber(String number) {
