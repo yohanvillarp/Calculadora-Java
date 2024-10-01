@@ -46,7 +46,7 @@ public class Teclado extends JPanel{
 		
 		for(JButton btn : buttons) {
 			btn = new JButton(caracteres[cont]);
-			if(!caracteres[cont].equals("DEL") && !caracteres[cont].equals("AC") && !caracteres[cont].equals("Ans") && !caracteres[cont].equals("x10^x"))
+			if(!caracteres[cont].equals("DEL") && !caracteres[cont].equals("AC") && !caracteres[cont].equals("x10^x"))
 				btn.addActionListener(Events.eventPressButton());
 			else {
 				if(caracteres[cont].equals("AC")) btn.addActionListener(Events.eventDelete());
