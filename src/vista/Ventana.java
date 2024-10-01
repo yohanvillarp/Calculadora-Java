@@ -25,6 +25,7 @@ public class Ventana extends JFrame{
 		setLayout(new BorderLayout());
 		setSize(WIDTH, HEIGHT);
 		setTitle("Calculadora");
+		setResizable(false);
 	}
 	//centrando Frame
 	private void centerFrame() {

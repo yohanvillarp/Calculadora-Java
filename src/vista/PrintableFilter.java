@@ -76,6 +76,9 @@ class PrintableFilter extends DocumentFilter {
 
 		// Verifica si el texto resultante es un número válido
 		if (test(sb.toString())) {
+			//eliminando primer cero
+			if(text.length()==2 && text.substring(0, 1).equals("0"))
+				text = text.substring(1, 2);
 			// Si es válido, realiza la sustitución en el documento
 			super.replace(fb, offset, length, text, attrs);
 		} else {

@@ -48,6 +48,7 @@ public class Pantalla extends JPanel{
 		displayField.setText("0");
 	}
 	public void removeLastCharacter() {
-		displayField.setText(displayField.getText().substring(0, displayField.getText().length()-1));
+		if(displayField.getText().length()==1) displayField.setText("0");
+		else displayField.setText(displayField.getText().substring(0, displayField.getText().length()-1));
 	}
 }
