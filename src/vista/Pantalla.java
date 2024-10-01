@@ -41,7 +41,13 @@ public class Pantalla extends JPanel{
 		doc.setDocumentFilter(new PrintableFilter());
 		add(displayField);
 	}
-	public void addNumber(String number) {
+	public void addNumberOrSigno(String number) {
 		displayField.setText(displayField.getText()+number);
+	}
+	public void deleteAll() {
+		displayField.setText("0");
+	}
+	public void removeLastCharacter() {
+		displayField.setText(displayField.getText().substring(0, displayField.getText().length()-1));
 	}
 }

@@ -98,7 +98,7 @@ class PrintableFilter extends DocumentFilter {
 		// Elimina el texto en la posición especificada
 		sb.delete(offset, offset + length);
 			
-		// Verifica si el texto resultante es un número válido
+		// Verifica si el texto resultante es un número o signo válido
 		if (test(sb.toString()) || zeroNum) {
 			// Si es válido, realiza la eliminación en el documento
 			super.remove(fb, offset, length);

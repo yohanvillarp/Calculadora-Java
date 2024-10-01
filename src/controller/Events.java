@@ -11,8 +11,18 @@ public class Events {
 		//logica de botones
 		ActionListener logicaButton = (e) ->{
 			JButton btn = (JButton)e.getSource();
-			Pantalla.getInstance().addNumber(btn.getText());
+			Pantalla.getInstance().addNumberOrSigno(btn.getText());
 		};
 		return logicaButton;
+	}
+	public static ActionListener eventDelete() {
+		ActionListener delete = (e) ->
+			Pantalla.getInstance().deleteAll();
+		return delete;
+	}
+	public static ActionListener eventDeleteLast() {
+		ActionListener delete = (e) ->
+			Pantalla.getInstance().removeLastCharacter();
+		return delete;
 	}
 }
